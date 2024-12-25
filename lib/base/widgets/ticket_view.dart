@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/widgets/app_coloum_text_layout.dart';
@@ -25,7 +24,7 @@ class TicketView extends StatelessWidget {
           children: [
             //blue part of ticket
             Container(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                   color: AppStyles.ticketBlue,
                   borderRadius: const BorderRadius.only(
@@ -105,7 +104,7 @@ class TicketView extends StatelessWidget {
             ),
             //orange part of ticket
             Container(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                   color: AppStyles.ticketOrange,
                   borderRadius: const BorderRadius.only(
