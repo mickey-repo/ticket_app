@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ticket_app/base/res/media.dart';
 
-import '../../base/res/styles/app_styles.dart';
+import '../../../base/res/styles/app_styles.dart';
+
 
 class Hotel extends StatelessWidget {
   final Map<String, dynamic> hotel;
@@ -12,7 +11,7 @@ class Hotel extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.only(right: 16),
+      margin: const EdgeInsets.only(right: 16),
       padding: const EdgeInsets.all(8.0),
       width: size.width*0.6,
       height: 350,
