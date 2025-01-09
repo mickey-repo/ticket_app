@@ -13,7 +13,7 @@ class TicketPromotion extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           width: size.width * .42,
           height: 435,
           decoration: BoxDecoration(
@@ -38,7 +38,7 @@ class TicketPromotion extends StatelessWidget {
                         image: AssetImage(AppMedia.planeSit))
                 ),
               ),
-              SizedBox(height: 12,),
+              const SizedBox(height: 12,),
               Text("20% discount on the early booking of this flight. Don't miss",
                 style: AppStyles.headLineStyle2,)
             ],
@@ -49,12 +49,12 @@ class TicketPromotion extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                   width: size.width *.44,
                   height: 210,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    color: Color(0xFF3AB8B8),
+                    color: const Color(0xFF3AB8B8),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +64,7 @@ class TicketPromotion extends StatelessWidget {
                             fontWeight:FontWeight.bold,
                             color: Colors.white),
                       ),
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                       Text("Take the survey about our services and get discount",
                         style: AppStyles.headLineStyle2.copyWith(
                             fontWeight:FontWeight.w500,
@@ -90,13 +90,13 @@ class TicketPromotion extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               width: size.width*.44,
               height: 210,
               decoration: BoxDecoration(
-                  color: Color(0xFFEC6545),
+                  color: const Color(0xFFEC6545),
                   borderRadius: BorderRadius.circular(18)
               ),
               child: Column(
