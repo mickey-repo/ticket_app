@@ -19,11 +19,13 @@ class TicketScreen extends StatefulWidget {
 
 class _TicketScreenState extends State<TicketScreen> {
 
-  late int ticketIndex;
+  late int ticketIndex =0;
   @override
   void didChangeDependencies() {
-    var args = ModalRoute.of(context)!.settings.arguments as Map;
-    ticketIndex = args["index"];
+    if(ModalRoute.of(context)!.settings.arguments != null){
+      var args = ModalRoute.of(context)!.settings.arguments as Map;
+      ticketIndex = args["index"];
+    }
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
   }
