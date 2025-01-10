@@ -116,5 +116,4 @@ class AppRoutes{
   static const allHotels = "/all_hotels";
 
   static const hotelDetail = "/hotel_detail";
-
 }
