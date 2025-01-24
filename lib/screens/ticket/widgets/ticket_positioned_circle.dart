@@ -13,7 +13,7 @@ class TicketPositionedCircle extends StatelessWidget {
         right: pos==false?22:null,
         top: 250,
         child: Container(
-          padding: EdgeInsets.all(3),
+          padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
               shape: BoxShape.circle, border: Border.all(width: 2,color: AppStyles.textColor)
           ),

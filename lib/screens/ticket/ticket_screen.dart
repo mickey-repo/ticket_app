@@ -130,7 +130,7 @@ class _TicketScreenState extends State<TicketScreen> {
                     )
                 ),
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: BarcodeWidget(
@@ -144,7 +144,7 @@ class _TicketScreenState extends State<TicketScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               Container(
                   padding: const EdgeInsets.only(left: 16),
                   child: TicketView(ticket: ticketList[ticketIndex],)
