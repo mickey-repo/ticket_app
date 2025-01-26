@@ -7,6 +7,7 @@ import 'package:ticket_app/screens/home/widgets/hotel.dart';
 import '../../base/res/media.dart';
 import '../../base/res/styles/app_styles.dart';
 import '../../base/utils/all_json.dart';
+import '../../base/widgets/heading_text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -34,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                         const SizedBox(
                           height: 5,
                         ),
-                        Text("Book Tickets", style: AppStyles.headLineStyle1)
+                        const HeadingText(text: "Book Tickets", isColor: false,),
                       ],
                     ),
                     Container(
