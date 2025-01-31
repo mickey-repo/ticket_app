@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/utils/all_json.dart';
+import 'package:ticket_app/controller/text_expansion_controller.dart';
 
 class HotelDetail extends StatefulWidget {
   const HotelDetail({super.key});
@@ -108,41 +111,34 @@ class _HotelDetailState extends State<HotelDetail> {
 }
 
 
-class ExpendedTextWidget extends StatefulWidget {
+class ExpendedTextWidget extends StatelessWidget {
   final String text;
-  const ExpendedTextWidget({super.key, required this.text});
+  final TextExpansionController controller = Get.put(TextExpansionController());
+  ExpendedTextWidget({super.key, required this.text});
 
-  @override
-  State<ExpendedTextWidget> createState() => _ExpendedTextWidgetState();
-}
-
-class _ExpendedTextWidgetState extends State<ExpendedTextWidget> {
-  bool isExpended = false;
-  _toggleExpansion(){
-    setState(() {
-      isExpended =!isExpended;
-    });
-  }
   @override
   Widget build(BuildContext context) {
-    var textWidget = Text (
-      widget.text,
-      maxLines: isExpended?null:9,
-      overflow: isExpended?TextOverflow.visible:TextOverflow.ellipsis,
-    );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        textWidget,
-        GestureDetector(
-          onTap: (){
-            _toggleExpansion();
-          },
-          child: Text(isExpended?"Less":"More", style: AppStyles.textStyle.copyWith(
-            color: AppStyles.primaryColor
-          ),),
-        )
-      ],
-    );
+    return Obx((){
+      var textWidget = Text (
+        text,
+        maxLines: controller.isExpended.value?null:9,
+        overflow: controller.isExpended.value?TextOverflow.visible:TextOverflow.ellipsis,
+      );
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          textWidget,
+          GestureDetector(
+            onTap: (){
+              controller.toggleExpansion();
+            },
+            child: Text(controller.isExpended.value?"Less":"More", style: AppStyles.textStyle.copyWith(
+                color: AppStyles.primaryColor
+            ),),
+          )
+        ],
+      );
+    });
+
   }
 }
