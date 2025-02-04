@@ -38,6 +38,10 @@ dependencies:
   fluentui_icons: ^1.0.0
   barcode_widget: ^2.0.4
   get: ^4.6.6
+  riverpod: ^2.6.1
+  build_runner: ^2.4.13
+  riverpod_generator: ^2.6.3
+  flutter_riverpod: ^2.6.1
 
 dev_dependencies:
   flutter_test:
