@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
 import 'package:ticket_app/base/utils/all_json.dart';
-import 'package:ticket_app/controller/text_expansion_controller.dart';
-import 'package:ticket_app/provider/text_expansion_provider.dart';
+import 'package:ticket_app/bloc/text_expansion_bloc.dart';
+import 'package:ticket_app/bloc/text_expansion_events.dart';
+import 'package:ticket_app/bloc/text_expansion_states.dart';
 
 class HotelDetail extends StatefulWidget {
   const HotelDetail({super.key});
@@ -113,33 +112,34 @@ class _HotelDetailState extends State<HotelDetail> {
 }
 
 
-class ExpendedTextWidget extends ConsumerWidget {
+class ExpendedTextWidget extends StatelessWidget {
   final String text;
-  ExpendedTextWidget({super.key, required this.text});
+  const ExpendedTextWidget({super.key, required this.text});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
 
-    var isExpanded = ref.watch(textExpansionNotifierProvider);
-    var textWidget = Text (
-      text,
-      maxLines: isExpanded?null:9,
-      overflow: isExpanded?TextOverflow.visible:TextOverflow.ellipsis,
-    );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        textWidget,
-        GestureDetector(
-          onTap: (){
-            ref.watch(textExpansionNotifierProvider.notifier).toggleExpansion(isExpanded);
-          },
-          child: Text(isExpanded?"Less":"More", style: AppStyles.textStyle.copyWith(
-              color: AppStyles.primaryColor
-          ),),
-        )
-      ],
-    );
-
+    return BlocBuilder<TextExpansionBloc, TextExpansionState>(builder: (context, state){
+      var isExpanded = (state as TextExpansionExpanded).isExpanded;
+      var textWidget = Text (
+        text,
+        maxLines: isExpanded?null:9,
+        overflow: isExpanded?TextOverflow.visible:TextOverflow.ellipsis,
+      );
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          textWidget,
+          GestureDetector(
+            onTap: (){
+              context.read<TextExpansionBloc>().add(ToggleExpansion(!isExpanded));
+            },
+            child: Text(isExpanded?"Less":"More", style: AppStyles.textStyle.copyWith(
+                color: AppStyles.primaryColor
+            ),),
+          )
+        ],
+      );
+    });
   }
 }

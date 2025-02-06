@@ -1,5 +1,4 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/media.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
@@ -27,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
                 height: 86,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(image: AssetImage(AppMedia.logo))),
+                    image: const DecorationImage(image: AssetImage(AppMedia.logo))),
               ),
               const SizedBox(
                 width: 10,
@@ -47,18 +46,18 @@ class ProfileScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         color: Colors.grey.shade500),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 3, vertical: 3),
+                    padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
                     decoration: BoxDecoration(
                         color: AppStyles.profileLocationColor,
                         borderRadius: BorderRadius.circular(100)),
                     child: Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.all(3),
+                          padding: const EdgeInsets.all(3),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: AppStyles.profileTextColor),
@@ -143,11 +142,11 @@ class ProfileScreen extends StatelessWidget {
                   top: -40,
                   right: -45,
                   child: Container(
-                    padding: EdgeInsets.all(30),
+                    padding: const EdgeInsets.all(30),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border:
-                            Border.all(width: 18, color: Color(0xFF264CD2))),
+                            Border.all(width: 18, color: const Color(0xFF264CD2))),
                   ))
             ],
           ),
@@ -160,7 +159,7 @@ class ProfileScreen extends StatelessWidget {
             style: AppStyles.headLineStyle2,
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 color: AppStyles.bgColor),
