@@ -18,3 +18,6 @@ samples, guidance on mobile development, and a full API reference.
 ### How to resolve Android studio can not recognize dart project
 1. remove .idea folder, if it not working remove .idea folder and .dart_tool folder
 2. Go to setting -> Language & Fragment -> dart -> Enable dart support
+
+### Project view
+![img.png](img.png)
